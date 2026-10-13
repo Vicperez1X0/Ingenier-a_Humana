@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico de Ingeniería Humana | UAM-X</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #131c2e;
+            --accent: #00f0ff;
+            --accent-secondary: #7000ff;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .header {
+            background: linear-gradient(135deg, rgba(112,0,255,0.2), rgba(0,240,255,0.1));
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .progress-bar {
+            height: 4px;
+            width: 100%;
+            background: var(--border);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+            width: 20%;
+            transition: width 0.3s ease;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+
+        .option-card:hover {
+            border-color: var(--accent);
+            background: rgba(0, 240, 255, 0.05);
+        }
+
+        .option-card input {
+            margin-right: 10px;
+            accent-color: var(--accent);
+        }
+
+        .buttons-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--accent-secondary), var(--accent));
+            color: #0b0f19;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-main);
+            color: var(--text-main);
+        }
+
+        /* Resultados */
+        .result-box {
+            text-align: center;
+        }
+
+        .result-box h2 {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .result-box p {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .cta-container {
+            background: rgba(112, 0, 255, 0.1);
+            border: 1px dashed var(--accent-secondary);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Ingeniería Humana | UAM-X</h1>
+            <p>Diagnóstico de Arquitectura Personal y Lógica de Vida</p>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress"></div>
+        </div>
+
+        <div class="content">
+            <!-- Pregunta 1 -->
+            <div class="step active" id="step-1">
+                <h3>1. Si hoy multiplicaras todo tu conocimiento y talento académico por cero en Inteligencia Emocional o Claridad de Propósito, ¿cuál sería el resultado real de tu ecuación?</h3>
+                <div class="options">
+                    <label class="option-card"><input type="radio" name="p1" value="A"> A) Tiende a cero; acumulo teoría pero me cuesta operar bajo presión.</label>
+                    <label class="option-card"><input type="radio" name="p1" value="B"> B) Sobrevive por puro esfuerzo, aunque falta dirección estratégica.</label>
+                    <label class="option-card"><input type="radio" name="p1" value="C"> C) Se mantiene estable, pero sé que me falta optimizar mi estructura interna.</label>
+                </div>
+                <div class="buttons-group">
+                    <div></div>
+                    <button class="btn" onclick="nextStep(1)">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- Pregunta 2 -->
+            <div class="step" id="step-2">
+                <h3>2. ¿Estás construyendo tu vida profesional desde tu propio diseño o estás ejecutando un plano que alguien más dibujó para ti?</h3>
+                <div class="options">
+                    <label class="option-card"><input type="radio" name="p2" value="A"> A) Sigo expectativas familiares o sociales tradicionales.</label>
+                    <label class="option-card"><input type="radio" name="p2" value="B"> B) Intento diseñar mi camino, pero la incertidumbre me detiene.</label>
+                    <label class="option-card"><input type="radio" name="p2" value="C"> C) Estoy buscando las herramientas para tomar el control total de mi obra.</label>
+                </div>
+                <div class="buttons-group">
+                    <button class="btn btn-secondary" onclick="prevStep(2)">Anterior</button>
+                    <button class="btn" onclick="nextStep(2)">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- Pregunta 3 -->
+            <div class="step" id="step-3">
+                <h3>3. ¿Cuál es el valor real de las cosas y de las personas en un sistema que solo mide el resultado final y no la estructura interna?</h3>
+                <div class="options">
+                    <label class="option-card"><input type="radio" name="p3" value="A"> A) El sistema desvaloriza lo esencial y premia solo la apariencia.</label>
+                    <label class="option-card"><input type="radio" name="p3" value="B"> B) Es confuso; a veces uno mismo se califica por lo material o el estatus.</label>
+                    <label class="option-card"><input type="radio" name="p3" value="C"> C) El verdadero valor radica en la congruencia y el autoconocimiento.</label>
+                </div>
+                <div class="buttons-group">
+                    <button class="btn btn-secondary" onclick="prevStep(3)">Anterior</button>
+                    <button class="btn" onclick="nextStep(3)">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- Pregunta 4 -->
+            <div class="step" id="step-4">
+                <h3>4. Si pudieras hacer una auditoría o un "mantenimiento preventivo" a tu mente y a tu actitud hoy, ¿qué fallas estructurales encontrarías?</h3>
+                <div class="options">
+                    <label class="option-card"><input type="radio" name="p4" value="A"> A) Exceso de ruido mental, procrastinación y miedo al fracaso.</label>
+                    <label class="option-card"><input type="radio" name="p4" value="B"> B) Falta de disciplina sostenida y claridad en mis metas a largo plazo.</label>
+                    <label class="option-card"><input type="radio" name="p4" value="C"> C) Necesidad de un método estructurado para potenciar mis capacidades.</label>
+                </div>
+                <div class="buttons-group">
+                    <button class="btn btn-secondary" onclick="prevStep(4)">Anterior</button>
+                    <button class="btn" onclick="nextStep(4)">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- Pregunta 5 (Final / Resultados) -->
+            <div class="step" id="step-5">
+                <div class="result-box">
+                    <h2>Diagnóstico Preliminar Completado</h2>
+                    <p>Has detectado los puntos clave de tu arquitectura personal. La diferencia entre el éxito y el estancamiento no es la suerte, es la <strong>Ingeniería Humana</strong> con la que operas cada día.</p>
+                    
+                    <div class="cta-container">
+                        <p style="color: var(--text-main); margin-bottom: 15px; font-size: 0.95rem;">
+                            ¿Quieres descubrir la metodología completa, descifrar la fórmula y cambiar tu perspectiva?
+                        </p>
+                        <!-- REEMPLAZA EL '#' EN HREF POR TU ENLACE DIRECTO DE AMAZON KDP -->
+                        <a href="#" target="_blank" class="btn" style="text-decoration: none; margin-bottom: 15px;">
+                            Conoce el libro "1X0 SIEMPRE SERÁ = 1"
+                        </a>
+                    </div>
+
+                    <div style="margin-top: 25px;">
+                        <button class="btn" onclick="enviarPorCorreo()" style="background: linear-gradient(135deg, #00f0ff, #0070ff);">
+                            Enviar respuestas a Víctor
+                        </button>
+                    </div>
+                </div>
+                <div class="buttons-group" style="margin-top: 20px;">
+                    <button class="btn btn-secondary" onclick="prevStep(5)">Anterior</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 5;
+
+        function updateProgress() {
+            const progressPercent = (currentStep / totalSteps) * 100;
+            document.getElementById('progress').style.width = progressPercent + '%';
+        }
+
+        function nextStep(step) {
+            // Validar que se haya seleccionado una opción antes de avanzar
+            const options = document.querySelectorAll(`input[name="p${step}"]`);
+            let selected = false;
+            options.forEach(opt => { if (opt.checked) selected = true; });
+
+            // Opcional: puedes quitar este if si prefieres que sea completamente libre sin obligar a responder
+            /*
+            if (!selected && step < 5) {
+                alert("Por favor selecciona una opción para continuar.");
+                return;
+            }
+            */
+
+            document.getElementById(`step-${step}`).classList.remove('active');
+            currentStep = step + 1;
+            document.getElementById(`step-${currentStep}`).classList.add('active');
+            updateProgress();
+        }
+
+        function prevStep(step) {
+            document.getElementById(`step-${step}`).classList.remove('active');
+            currentStep = step - 1;
+            document.getElementById(`step-${currentStep}`).classList.add('active');
+            updateProgress();
+        }
+
+        function enviarPorCorreo() {
+            const correoDestino = "victorperez@vpexperiencegroup.com.mx";
+            const asunto = encodeURIComponent("Respuestas Diagnóstico - Ingeniería Humana UAM-X");
+            
+            let p1 = document.querySelector('input[name="p1"]:checked')?.value || "No respondida";
+            let p2 = document.querySelector('input[name="p2"]:checked')?.value || "No respondida";
+            let p3 = document.querySelector('input[name="p3"]:checked')?.value || "No respondida";
+            let p4 = document.querySelector('input[name="p4"]:checked')?.value || "No respondida";
+
+            let cuerpo = "Hola Víctor,\n\nComparto los resultados de mi diagnóstico de Ingeniería Humana:\n\n";
+            cuerpo += `1. Ecuación y Talento: Opción ${p1}\n`;
+            cuerpo += `2. Plano de vida: Opción ${p2}\n`;
+            cuerpo += `3. Valor y estructura: Opción ${p3}\n`;
+            cuerpo += `4. Mantenimiento preventivo: Opción ${p4}\n\n`;
+            cuerpo += "Saludos cordiales.";
+
+            window.location.href = `mailto:${correoDestino}?subject=${asunto}&body=${encodeURIComponent(cuerpo)}`;
+        }
+    </script>
+</body>
+</html>
