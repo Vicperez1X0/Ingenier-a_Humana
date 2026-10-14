@@ -162,7 +162,6 @@
             color: var(--text-main);
         }
 
-        /* Resultados */
         .result-box {
             text-align: center;
         }
@@ -203,9 +202,9 @@
             <div class="step active" id="step-1">
                 <h3>1. Si hoy multiplicaras todo tu conocimiento y talento académico por cero en Inteligencia Emocional o Claridad de Propósito, ¿cuál sería el resultado real de tu ecuación?</h3>
                 <div class="options">
-                    <label class="option-card"><input type="radio" name="p1" value="A"> A) Tiende a cero; acumulo teoría pero me cuesta operar bajo presión.</label>
-                    <label class="option-card"><input type="radio" name="p1" value="B"> B) Sobrevive por puro esfuerzo, aunque falta dirección estratégica.</label>
-                    <label class="option-card"><input type="radio" name="p1" value="C"> C) Se mantiene estable, pero sé que me falta optimizar mi estructura interna.</label>
+                    <label class="option-card"><input type="radio" name="p1" value="Tiende a cero; acumulo teoría pero me cuesta operar bajo presión." data-score="40"> Tiende a cero; acumulo teoría pero me cuesta operar bajo presión.</label>
+                    <label class="option-card"><input type="radio" name="p1" value="Sobrevive por puro esfuerzo, aunque falta dirección estratégica." data-score="70"> Sobrevive por puro esfuerzo, aunque falta dirección estratégica.</label>
+                    <label class="option-card"><input type="radio" name="p1" value="Se mantiene estable, pero sé que me falta optimizar mi estructura interna." data-score="100"> Se mantiene estable, pero sé que me falta optimizar mi estructura interna.</label>
                 </div>
                 <div class="buttons-group">
                     <div></div>
@@ -217,9 +216,9 @@
             <div class="step" id="step-2">
                 <h3>2. ¿Estás construyendo tu vida profesional desde tu propio diseño o estás ejecutando un plano que alguien más dibujó para ti?</h3>
                 <div class="options">
-                    <label class="option-card"><input type="radio" name="p2" value="A"> A) Sigo expectativas familiares o sociales tradicionales.</label>
-                    <label class="option-card"><input type="radio" name="p2" value="B"> B) Intento diseñar mi camino, pero la incertidumbre me detiene.</label>
-                    <label class="option-card"><input type="radio" name="p2" value="C"> C) Estoy buscando las herramientas para tomar el control total de mi obra.</label>
+                    <label class="option-card"><input type="radio" name="p2" value="Sigo expectativas familiares o sociales tradicionales." data-score="40"> Sigo expectativas familiares o sociales tradicionales.</label>
+                    <label class="option-card"><input type="radio" name="p2" value="Intento diseñar mi camino, pero la incertidumbre me detiene." data-score="70"> Intento diseñar mi camino, pero la incertidumbre me detiene.</label>
+                    <label class="option-card"><input type="radio" name="p2" value="Estoy buscando las herramientas para tomar el control total de mi obra." data-score="100"> Estoy buscando las herramientas para tomar el control total de mi obra.</label>
                 </div>
                 <div class="buttons-group">
                     <button class="btn btn-secondary" onclick="prevStep(2)">Anterior</button>
@@ -231,9 +230,9 @@
             <div class="step" id="step-3">
                 <h3>3. ¿Cuál es el valor real de las cosas y de las personas en un sistema que solo mide el resultado final y no la estructura interna?</h3>
                 <div class="options">
-                    <label class="option-card"><input type="radio" name="p3" value="A"> A) El sistema desvaloriza lo esencial y premia solo la apariencia.</label>
-                    <label class="option-card"><input type="radio" name="p3" value="B"> B) Es confuso; a veces uno mismo se califica por lo material o el estatus.</label>
-                    <label class="option-card"><input type="radio" name="p3" value="C"> C) El verdadero valor radica en la congruencia y el autoconocimiento.</label>
+                    <label class="option-card"><input type="radio" name="p3" value="El sistema desvaloriza lo esencial y premia solo la apariencia." data-score="50"> El sistema desvaloriza lo esencial y premia solo la apariencia.</label>
+                    <label class="option-card"><input type="radio" name="p3" value="Es confuso; a veces uno mismo se califica por lo material o el estatus." data-score="70"> Es confuso; a veces uno mismo se califica por lo material o el estatus.</label>
+                    <label class="option-card"><input type="radio" name="p3" value="El verdadero valor radica en la congruencia y el autoconocimiento." data-score="100"> El verdadero valor radica en la congruencia y el autoconocimiento.</label>
                 </div>
                 <div class="buttons-group">
                     <button class="btn btn-secondary" onclick="prevStep(3)">Anterior</button>
@@ -245,9 +244,9 @@
             <div class="step" id="step-4">
                 <h3>4. Si pudieras hacer una auditoría o un "mantenimiento preventivo" a tu mente y a tu actitud hoy, ¿qué fallas estructurales encontrarías?</h3>
                 <div class="options">
-                    <label class="option-card"><input type="radio" name="p4" value="A"> A) Exceso de ruido mental, procrastinación y miedo al fracaso.</label>
-                    <label class="option-card"><input type="radio" name="p4" value="B"> B) Falta de disciplina sostenida y claridad en mis metas a largo plazo.</label>
-                    <label class="option-card"><input type="radio" name="p4" value="C"> C) Necesidad de un método estructurado para potenciar mis capacidades.</label>
+                    <label class="option-card"><input type="radio" name="p4" value="Exceso de ruido mental, procrastinación y miedo al fracaso." data-score="40"> Exceso de ruido mental, procrastinación y miedo al fracaso.</label>
+                    <label class="option-card"><input type="radio" name="p4" value="Falta de disciplina sostenida y claridad en mis metas a largo plazo." data-score="70"> Falta de disciplina sostenida y claridad en mis metas a largo plazo.</label>
+                    <label class="option-card"><input type="radio" name="p4" value="Necesidad de un método estructurado para potenciar mis capacidades." data-score="100"> Necesidad de un método estructurado para potenciar mis capacidades.</label>
                 </div>
                 <div class="buttons-group">
                     <button class="btn btn-secondary" onclick="prevStep(4)">Anterior</button>
@@ -265,7 +264,7 @@
                         <p style="color: var(--text-main); margin-bottom: 15px; font-size: 0.95rem;">
                             ¿Quieres descubrir la metodología completa, descifrar la fórmula y cambiar tu perspectiva?
                         </p>
-                        <!-- REEMPLAZA EL '#' EN HREF POR TU ENLACE DIRECTO DE AMAZON KDP -->
+                        <!-- Recuerda cambiar el '#' por tu enlace de Amazon KDP -->
                         <a href="https://www.amazon.com.mx/dp/B0H231YDKV" target="_blank" class="btn" style="text-decoration: none; margin-bottom: 15px;">
                             Conoce el libro "1X0 SIEMPRE SERÁ = 1"
                         </a>
@@ -294,19 +293,6 @@
         }
 
         function nextStep(step) {
-            // Validar que se haya seleccionado una opción antes de avanzar
-            const options = document.querySelectorAll(`input[name="p${step}"]`);
-            let selected = false;
-            options.forEach(opt => { if (opt.checked) selected = true; });
-
-            // Opcional: puedes quitar este if si prefieres que sea completamente libre sin obligar a responder
-            /*
-            if (!selected && step < 5) {
-                alert("Por favor selecciona una opción para continuar.");
-                return;
-            }
-            */
-
             document.getElementById(`step-${step}`).classList.remove('active');
             currentStep = step + 1;
             document.getElementById(`step-${currentStep}`).classList.add('active');
@@ -322,19 +308,36 @@
 
         function enviarPorCorreo() {
             const correoDestino = "victorperez@vpexperiencegroup.com.mx";
-            const asunto = encodeURIComponent("Respuestas Diagnóstico - Ingeniería Humana UAM-X");
+            const asunto = encodeURIComponent("Evaluación Diagnóstico - Ingeniería Humana UAM-X");
             
-            let p1 = document.querySelector('input[name="p1"]:checked')?.value || "No respondida";
-            let p2 = document.querySelector('input[name="p2"]:checked')?.value || "No respondida";
-            let p3 = document.querySelector('input[name="p3"]:checked')?.value || "No respondida";
-            let p4 = document.querySelector('input[name="p4"]:checked')?.value || "No respondida";
+            // Obtener elementos seleccionados y sus puntajes
+            const r1 = document.querySelector('input[name="p1"]:checked');
+            const r2 = document.querySelector('input[name="p2"]:checked');
+            const r3 = document.querySelector('input[name="p3"]:checked');
+            const r4 = document.querySelector('input[name="p4"]:checked');
 
-            let cuerpo = "Hola Víctor,\n\nComparto los resultados de mi diagnóstico de Ingeniería Humana:\n\n";
-            cuerpo += `1. Ecuación y Talento: Opción ${p1}\n`;
-            cuerpo += `2. Plano de vida: Opción ${p2}\n`;
-            cuerpo += `3. Valor y estructura: Opción ${p3}\n`;
-            cuerpo += `4. Mantenimiento preventivo: Opción ${p4}\n\n`;
-            cuerpo += "Saludos cordiales.";
+            let text1 = r1 ? r1.value : "No respondida";
+            let text2 = r2 ? r2.value : "No respondida";
+            let text3 = r3 ? r3.value : "No respondida";
+            let text4 = r4 ? r4.value : "No respondida";
+
+            let score1 = r1 ? parseInt(r1.getAttribute('data-score')) : 0;
+            let score2 = r2 ? parseInt(r2.getAttribute('data-score')) : 0;
+            let score3 = r3 ? parseInt(r3.getAttribute('data-score')) : 0;
+            let score4 = r4 ? parseInt(r4.getAttribute('data-score')) : 0;
+
+            // Calcular promedio general (Calificación de 0 a 100)
+            let totalScore = Math.round((score1 + score2 + score3 + score4) / 4);
+
+            let cuerpo = "Hola Víctor,\n\nHas recibido un nuevo resultado de diagnóstico en la UAM-X:\n\n";
+            cuerpo += `CALIFICACIÓN DE ARQUITECTURA PERSONAL: ${totalScore} / 100\n`;
+            cuerpo += "--------------------------------------------------\n\n";
+            cuerpo += `1. Ecuación y Talento:\n-> ${text1}\n\n`;
+            cuerpo += `2. Plano de vida:\n-> ${text2}\n\n`;
+            cuerpo += `3. Valor y estructura:\n-> ${text3}\n\n`;
+            cuerpo += `4. Mantenimiento preventivo:\n-> ${text4}\n\n`;
+            cuerpo += "--------------------------------------------------\n";
+            cuerpo += "Reporte generado automáticamente desde GitHub Pages.";
 
             window.location.href = `mailto:${correoDestino}?subject=${asunto}&body=${encodeURIComponent(cuerpo)}`;
         }
