@@ -330,14 +330,14 @@
             let totalScore = Math.round((score1 + score2 + score3 + score4) / 4);
 
             let cuerpo = "Hola Víctor,\n\nHas recibido un nuevo resultado de diagnóstico en la UAM-X:\n\n";
-            cuerpo += `CALIFICACIÓN DE ARQUITECTURA PERSONAL: ${totalScore} / 100\n`;
+            cuerpo += `EVALUACIÓN DE ARQUITECTURA PERSONAL: ${totalScore} / 100\n`;
             cuerpo += "--------------------------------------------------\n\n";
             cuerpo += `1. Ecuación y Talento:\n-> ${text1}\n\n`;
             cuerpo += `2. Plano de vida:\n-> ${text2}\n\n`;
             cuerpo += `3. Valor y estructura:\n-> ${text3}\n\n`;
             cuerpo += `4. Mantenimiento preventivo:\n-> ${text4}\n\n`;
             cuerpo += "--------------------------------------------------\n";
-            cuerpo += "Reporte generado automáticamente desde GitHub Pages.";
+            cuerpo += "Reporte generado automáticamente por Ingeniería Humana.";
 
             window.location.href = `mailto:${correoDestino}?subject=${asunto}&body=${encodeURIComponent(cuerpo)}`;
         }
